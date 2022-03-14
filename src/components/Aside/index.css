@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.textNav h1{
+    font-family: 'Lobster', cursive;
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.avatarText h6{
+    margin: 0px 0px 0px 5px;
+    font-family: 'Poppins', sans-serif;
+}
