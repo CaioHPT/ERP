@@ -4,7 +4,6 @@ export const AccountContext = createContext();
 
 export default function AccountProvider({children}){
 
-
     const [isAuthenticated, setIsAuthenticated] = useState(localStorage.getItem("token"))
 
     return(

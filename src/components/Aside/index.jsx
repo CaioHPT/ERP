@@ -19,6 +19,10 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import GroupIcon from '@mui/icons-material/Group';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import Avatar from '@mui/material/Avatar';
+
+import { connect } from "react-redux";
+import renderPage from "../../store/renderPage"
+
 import './index.css'
 
 const icons = [<GroupIcon />, <AssignmentIndIcon />, <ShoppingBagIcon />, <AssessmentIcon />, <ExitToAppIcon />]
@@ -83,7 +87,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 
-export default function Aside() {
+function Aside({RenderizedPage, dispatch}) {
+
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
@@ -123,21 +128,23 @@ export default function Aside() {
                         <MenuIcon />
                     </IconButton>}
                     <Typography className="textNav" >
-                        <h1>ERP</h1>
+                        <h1>Magsoft</h1>
                     </Typography>
                     <Typography sx={{ display: "flex", alignItems: "center" }} className="avatarText">
                         <Avatar src="/broken-image.jpg" />
                         <h6>CaioHPT</h6>
                     </Typography>
                 </Toolbar>
+                
             </AppBar>
             <Drawer variant="permanent" open={open}>
                 <DrawerHeader>
-
+                    
                 </DrawerHeader>
                 <List>
                     {['Clientes', 'Funcionários', 'Produtos', 'Vendas', 'Sair'].map((text, index) => (
                         <ListItemButton
+                            onClick={() => dispatch(renderPage(text.toUpperCase()))}
                             key={text}
                             sx={{
                                 minHeight: 48,
@@ -159,8 +166,13 @@ export default function Aside() {
                         </ListItemButton>
                     ))}
                 </List>
+               
             </Drawer>
-
+            
         </Box>
     );
 }
+
+export default connect(state => (
+    { RenderizedPage: state.RenderizedPage }
+))(Aside);
