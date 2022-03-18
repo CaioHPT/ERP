@@ -145,7 +145,7 @@ function Aside({RenderizedPage, dispatch}) {
                 <List>
                     {['Clientes', 'Funcionarios', 'Produtos', 'Vendas', 'Sair'].map((text, index) => (
                         <Link to={`/${text}`} >
-                            <ListItemButton
+                            <ListItemButton 
                             
                                 key={text}
                                 sx={{
@@ -164,7 +164,7 @@ function Aside({RenderizedPage, dispatch}) {
                                     {icons[index]}
                                 </ListItemIcon>
                                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }}
-                                 primaryTypographyProps={{ fontWeight: 'bold', fontFamily: 'Poppins' }} />
+                                 primaryTypographyProps={{ fontWeight: 'bold', fontFamily: 'Poppins', color:"black" }} />
                                 
                             </ListItemButton>
                         </Link>
