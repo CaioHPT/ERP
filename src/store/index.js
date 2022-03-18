@@ -1,11 +1,17 @@
 import { createStore } from "redux";
+import Cliente from "../components/Cliente"
 import axios from "axios"
+import Teste from "../components/Teste"
 
-const RenderizedPage = {name: "gabriel"};
+function reducer(state = "", action) {
+    //console.log(action)
 
-function reducer() {
-    console.log("teste")
-    return RenderizedPage;
+    if (action.type === "CLIENTES") {
+        return {
+            ...state,
+        }
+    }
+    return state;
 }
 
 const store = createStore(reducer)

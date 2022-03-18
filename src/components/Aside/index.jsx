@@ -22,6 +22,7 @@ import Avatar from '@mui/material/Avatar';
 
 import { connect } from "react-redux";
 import renderPage from "../../store/renderPage"
+import { Link } from "react-router-dom"
 
 import './index.css'
 
@@ -142,35 +143,38 @@ function Aside({RenderizedPage, dispatch}) {
                     
                 </DrawerHeader>
                 <List>
-                    {['Clientes', 'Funcionários', 'Produtos', 'Vendas', 'Sair'].map((text, index) => (
-                        <ListItemButton
-                            onClick={() => dispatch(renderPage(text.toUpperCase()))}
-                            key={text}
-                            sx={{
-                                minHeight: 48,
-                                justifyContent: open ? 'initial' : 'center',
-                                px: 2.5,
-                            }}
-                        >
-                            <ListItemIcon
+                    {['Clientes', 'Funcionarios', 'Produtos', 'Vendas', 'Sair'].map((text, index) => (
+                        <Link to={`/${text}`} >
+                            <ListItemButton
+                            
+                                key={text}
                                 sx={{
-                                    minWidth: 0,
-                                    mr: open ? 3 : 'auto',
-                                    justifyContent: 'center',
+                                    minHeight: 48,
+                                    justifyContent: open ? 'initial' : 'center',
+                                    px: 2.5,
                                 }}
                             >
-                                {icons[index]}
-                            </ListItemIcon>
-                            <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }}
-                                primaryTypographyProps={{ fontWeight: 'bold', fontFamily: 'Poppins' }} />
-                        </ListItemButton>
+                                <ListItemIcon
+                                    sx={{
+                                    minWidth: 0,
+                                        mr: open ? 3 : 'auto',
+                                        justifyContent: 'center',
+                                    }}
+                                >
+                                    {icons[index]}
+                                </ListItemIcon>
+                                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }}
+                                 primaryTypographyProps={{ fontWeight: 'bold', fontFamily: 'Poppins' }} />
+                                
+                            </ListItemButton>
+                        </Link>
                     ))}
                 </List>
                
             </Drawer>
             
         </Box>
-    );
+    );  
 }
 
 export default connect(state => (

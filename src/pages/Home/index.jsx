@@ -1,11 +1,11 @@
-
-
-const Home  = () => {
+import React from "react";
+import { connect } from "react-redux";
+const Home = () => {
     return(
-        <div>
-
-        </div>
+        <>
+        <h1>Olá</h1>
+        </>
     )
 }
 
-export default Home
+export default connect(state => ({ Component : state.Component}))(Home)
